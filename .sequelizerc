@@ -1,0 +1,9 @@
+const path = require('path');
+
+// Exporta as variáveis que receberão os caminhos de seus respectivos arquivos
+module.exports = {
+    "config": path.resolve(__dirname, "src", "config", "database_config.js"),
+    "models-path": path.resolve(__dirname, "src", "models"),
+    "migrations-path": path.resolve(__dirname, "src", "database", "migrations"),
+    "seeders-path": path.resolve(__dirname, "src", "database", "seeders")
+}
