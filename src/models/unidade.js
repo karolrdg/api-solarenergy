@@ -61,4 +61,5 @@ const Unidade = connection.define('Unidade', {
 },
     { underscored: true, paranoid: true });
 
+
 module.exports = { Unidade };
