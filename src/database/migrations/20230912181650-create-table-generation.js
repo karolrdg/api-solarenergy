@@ -4,6 +4,16 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("generations", {
+      created_by:{
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+            model: {
+                tableName: 'unidades'
+            },
+            key: 'id'
+        }
+    },
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
