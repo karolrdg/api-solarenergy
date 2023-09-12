@@ -1,5 +1,5 @@
 const { connection } = require('../database/connection')
-const { STRING, INTEGER, ENUM, DATE } = require('sequelize')
+const { STRING, ENUM, DATE } = require('sequelize')
 
 const Unidade = connection.define('Unidade', {
     name: {
@@ -60,5 +60,6 @@ const Unidade = connection.define('Unidade', {
     }
 },
     { underscored: true, paranoid: true });
+
 
 module.exports = { Unidade };
