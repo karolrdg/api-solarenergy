@@ -1,49 +1,13 @@
-const { Unidade } = require('../models/unidade')
-const { checkDataBody } = require('../services/checkDataBody')
+
 
 class UnitController {
 
     async createUnit(req, res) {
         try {
-            const {
-                name,
-                address,
-                brand,
-                model,
-                active
-            } = req.body
 
-            const dataPermited = [
-                "name",
-                "address",
-                "brand",
-                "model",
-                "active"
-            ]
-
-            if (checkDataBody(dataPermited, req.body)) {
-                return res.status(400).send({
-                    msg: "Algum campo enviado não é permitido"
-                })
-            }
-
-            const data = await Unidade.create({
-                name,
-                address,
-                brand,
-                model,
-                active
-            })
-
-            return res.status(201).send({
-                msg: "Nova unidade criada com sucesso",
-                newUnit: data
-            })
+            return res.status(201).send("teste unit POST")
         } catch (error) {
-            const message = error.message.msg || error.message
-            return res.status(400).send({
-                message
-            })
+            return res.status(400).send(error.message)
         }
     }
 
