@@ -1,23 +1,27 @@
-const { STRING, DATE } = require('sequelize')
-const { connection } = require('../database/connection')
+const { STRING, DATE } = require("sequelize");
+const { connection } = require("../database/connection");
 
-const Users = connection.define("users", {
+const Users = connection.define(
+  "users",
+  {
     name: {
-        type: STRING,
-        allowNull: false,
-        validate: {
-            len: { args: [2, 20],
-                   msg: 'O nome deve possuir entre 2 e 20 caracteres' },
-            notNull: {msg: "O campo name é obrigatório."}
+      type: STRING,
+      allowNull: false,
+      validate: {
+        len: {
+          args: [2, 20],
+          msg: "O nome deve possuir entre 2 e 20 caracteres",
         },
-        get() {
-          return this.getDataValue('name');
-        },
-        set(value) {
-          if (value) {
-              this.setDataValue('name', value.toLowerCase());
-          }
-        },
+        notNull: { msg: "O campo name é obrigatório." },
+      },
+      get() {
+        return this.getDataValue("name");
+      },
+      set(value) {
+        if (value) {
+          this.setDataValue("name", value.toLowerCase());
+        }
+      },
     },
     email: {
         type: STRING,
@@ -29,11 +33,11 @@ const Users = connection.define("users", {
         },
         unique: {msg:"Email já está cadastrado."},
         get() {
-          return this.getDataValue('email');
+          return this.getDataValue("email");
         },
         set(value) {
           if (value) {
-              this.setDataValue('email', value.toLowerCase());
+            this.setDataValue("email", value.toLowerCase());
           }
         },
     },
@@ -51,10 +55,11 @@ const Users = connection.define("users", {
     createdAt: DATE,
     updatedAt: DATE,
     deletedAt: DATE,
-    },
-    {
+  },
+  {
     underscored: true,
-    paranoid: true
-    });
+    paranoid: true,
+  }
+);
 
-module.exports = { Users }
+module.exports = { Users };
