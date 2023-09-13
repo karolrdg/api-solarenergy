@@ -2,6 +2,7 @@ const { sign } = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
 const { Generation } = require('../models/generation')
+const { checkBody } = require('../service/checkBody')
 
 class GenerationController {
 
