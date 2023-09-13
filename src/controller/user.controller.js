@@ -131,7 +131,7 @@ class UsersController {
                     msg: 'Valor do id tem que ser numérico e positivo.'
                 })
             }
-            if (!name && !lastname && !gender && !fone) {
+            if (!name && !email && !password) {
                 return response.status(400).send({
                     msg: 'Não há parametros para atualizar o registro'
                 })

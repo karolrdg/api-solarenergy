@@ -45,7 +45,7 @@ const Users = connection.define("users", {
                 args: "^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}$",
                 msg: "Deve ter no mínimo 8 caracteres, mínimo 1 letra maiúscula, mínimo 1 número e mínimo 1 caracteres especial"
                 },
-            notNull: {msg: {"msg":"O campo password é obrigatório.", "status":"400"}}    
+            notNull: {msg: "O campo password é obrigatório."}    
         }
     },
     createdAt: DATE,
