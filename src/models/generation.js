@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const { connection } = require('../database/connection');
+const { Unidade } = require('./unidade');
 
 const Generation = connection.define("Generation", {
   id: {
