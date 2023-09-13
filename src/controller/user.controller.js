@@ -65,9 +65,6 @@ class UsersController {
                 if (!user) {
                     return response.status(404).send({"msg": "Usuário não encontrado."})
                 }
-                if(user.status === 'Inativo'){
-                    return response.status(401).send({"msg": "Usuário inativo"})
-                }
                 if (user.password === password){
                     const payload = {"email": user.email, "id":user.id}
                     const token = sign(payload, process.env.JWT_SECRET_KEY, {
