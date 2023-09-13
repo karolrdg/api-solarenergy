@@ -9,10 +9,12 @@ class GenerationController {
 
         try {
             const {
+                created_by,
                 reference_date,
                 total_generated
             } = request.body;
             const keysAllowed = [
+                "created_by",
                 "reference_date",
                 "total_generated"
             ]
@@ -24,6 +26,7 @@ class GenerationController {
             }
 
             const data = await Generation.create({
+                created_by,
                 reference_date,
                 total_generated
                 })
@@ -70,10 +73,12 @@ class GenerationController {
     async editGeneration(request, response) {
         try {
             const {
+                created_by,
                reference_date,
                 total_generated
             } = request.body;
             const keysAllowed = [
+                "created_by",
                 "reference_date",
                 "total_generated"
             ]
@@ -100,7 +105,7 @@ class GenerationController {
                                                             msg: 'Unidade geradora não encontrada.'
                                                         })
             await Generation.update(
-                { reference_date, total_generated },
+                {created_by, reference_date, total_generated },
                 { where: { id } }
             )
             return response.status(204).send()
