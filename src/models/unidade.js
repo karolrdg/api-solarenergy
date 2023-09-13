@@ -80,7 +80,13 @@ const Unidade = connection.define('Unidade', {
     },
     active: {
         type: ENUM('Ativo', 'Inativo'),
-        allowNull: false
+        allowNull: false,
+        validate: {
+            isIn: {
+                args: [['Ativo', 'Inativo']],
+                msg: "Somente são aceito os valores 'Ativo' e 'Inativo'"
+            }
+        }
     },
     createdAt: {
         type: DATE,
